@@ -1,11 +1,19 @@
 \documentclass[a4paper, 12pt, leqno]{article}
 
 \usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{enumerate}
+\usepackage{times, mathptmx}
 
 \newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
+\newtheorem{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+\theoremstyle{remark}
+\newtheorem*{example}{Example}
 
 \author{\itshape Masum Billal}
 \title{\scshape Basic Number Theory}
@@ -14,7 +22,7 @@
 	\maketitle
 	\titlepage
 	\section*{Preface ($2016$ Edition)}
-		This is a note I wrote in $2010-2011$ (approximately). The primary objective was not to write a note though. I used to write something everyday as a habit of practicing \LaTeX, specially when I learned about a new feature. The end result was this note. For that reason, you can see that the original document structure (I lost the source file of that one, so I re-wrote it) is quite clumsy. Also, some topics seem random and not really connected to the main topic. I am keeping them here anyway since they may be useful after all.
+		This is an edited version of a note I wrote in $2010-2011$ (approximately). The primary objective was not to write a note though. I used to write something everyday as a habit of practicing \LaTeX, specially when I learned about a new feature. The end result was this note. For that reason, you can see that the original document structure (I lost the source file of that one, so I re-wrote it) is quite clumsy. Also, some topics seem random and not really connected to the main topic. I am keeping them here anyway since they may be useful after all.
 		
 		The note was primarily intended for BdMO math campers. However, it may be useful for any newcomer looking for interesting problems and ideas to solve them. It should be mentioned that, this is not a textbook. And you should not use it as a reference for something rigorous such as definitions. The reason is that, I have focused more on making the sense rather than stating something rigorous that makes less sense. Moreover, I could not write too much at that time and even though I am writing it now, I hardly have the time to improve it or add more to it. You can see the references section for further reading.
 		
@@ -35,11 +43,83 @@
 			\begin{align*}
 				97 & = 4\cdot24+1
 			\end{align*}
-		In this division, we call $4$ the quotient (the result of the division) and $1$ the remainder (the part which was left) of this division. For the division $96 = 24 · 4 + 0$ we have the remainder $0$. In this case, we say that $96$ is divisible by $24$ (so by $4$ as well).
+		In this division, we call $4$ the \textit{quotient} (the result of the division) and $1$ the \textit{remainder} (the part which was left) of this division. For the division $96 = 24 · 4 + 0$ we have the remainder $0$. In this case, we say that $96$ is divisible by $24$ (so by $4$ as well).
 			\begin{definition}
 				Let $a$ and $b$ be two natural numbers such that $b$ leaves remainder $0$ upon division by $a$. Then $b$ is said to be divisible by $a$. We denote it by $a|b$. Sometimes, the notation $b\vdots a$ is also used. But in this note, we shall make use of the notation of $a|b$ mostly.
+				
+				Here, $a$ is called a \textit{divisor} or \textit{factor} of $b$ and $b$ is called a \textit{multiple} of $a$. If $b$ leaves $a$ remainder other than $0$, then $b$ is not divisible by $a$ and is denoted by $a\nmid b$. Moreover, unless stated explicitly, we usually assume the associated integers are positive integers.
 			\end{definition}
+			
+			\begin{example}
+				$7|343$, $565655$ is a multiple of $5$, $29$ is a divisor of $841$ and so on.
+			\end{example}
+		Try some more examples and make sure with the notations and definitions of divisibility. Because your further reading of this note requires this excellency.
+			\begin{definition}[Prime and Composite]
+				A natural number $n$ is \textit{prime} if it has exactly $2$ positive divisors. Any positive integer that has more than $2$ positive divisors is a \textit{composite number}.
+			\end{definition}
+		You may notice that this definition is a bit different from what you know. But this definition clears up the ambiguity that keeps going around regarding $1$: is $1$ a prime or not?
+			\begin{example}
+				$2$ is the only even prime. If an even number is greater than $2$, then it must be divisible by $2$. Thus, it can not be a prime. First $3$ odd primes are $3, 5, 7$.
+			\end{example}
+	\subsection{Parity}
+		\begin{definition}
+			If a number leaves remainder $0$ upon division by $2$, then it is \textit{even}. If it leaves the remainder $1$, then it is  \textit{odd}. The property of a number being even or odd is called \textit{parity}. Two numbers are of the same parity if they both are odd or both are even. Otherwise they are of opposite parity. In other words, if two numbers give same remainder upon division by $2$, they are of the same parity, otherwise they are of opposite parity.
+		\end{definition}
 		
+		\begin{example}
+			$5$ and $7$ are of the same parity, whereas $4$ and $3$ are not.
+		\end{example}
+		
+		\begin{proposition}
+			The following statements are true.
+				\begin{enumerate}[i.]
+					\item The sum and difference of two numbers of the same parity is even.
+					\item The sum and difference of two numbers of different parity is odd.
+					\item Increasing or decreasing a number by a multiple of 2 does not change
+					the parity.
+					\item Any odd multiple of a number has the same parity of the number, and
+					for even multiple has a parity even.
+					\item The parity remains unchanged after raising to a power.
+				\end{enumerate}
+		\end{proposition}
+		
+		\begin{problem}
+			The difference of two odd numbers is divisible by $2$ but not by $4$. Prove
+			that their sum is divisible by $4$.
+		\end{problem}
+	How do we proceed to solve this? Since this involves divisibility by $2$, we should at least give parity a try. Here are two solutions.
+		\begin{solution}[$1$]
+			We have to take two odd number. So let us do the most obvious thing and assume that $2a+1$ and $2b+1$ are two odd numbers. From the condition, $2a+1-(2b+1)=2(a-b)$ is not divisible by $4$. This tells us that $a-b$ is odd. In that case, $a-b=2x+1$ for some integer $x$. We are required to show that $a+b$ must be divisible by $4$.
+				\begin{align*}
+					a+b & =2a+1+2b+1\\
+						& = 2(b+2x+1)+1+2b+1\\
+						& = 4b+4x+4\\
+						& = 4(b+x+1)
+				\end{align*}
+			This is certainly divisible by $4$.
+		\end{solution}
+	
+		\begin{solution}[$2$]
+			What would be a good alternative approach to prove this claim? Since we need to prove some divisibility regarding $4$, we should consider what happens when we divide odd numbers by $4$. And not very surprisingly we find that an odd number is either of the form $4k+1$ or of the form $4l+3$. Therefore, we have three cases.
+				\begin{enumerate}[(a)]
+					\item Both odd numbers are of the form $4k+1$. However, this can not hold. The reason is that this would imply their difference is divisible by $4$ since $4k+1-(4l+1)=4(k-l)$.
+					\item Both odd numbers are of the form $4k+3$. Same argument shows that this can not be true as well.
+					\item We are only left with the option where one is of the form $4k+1$ and the other is of the form $4l+3$. This indeed complies with the condition of the statement since $4k+1-(4l+3)=2(2k-2l+1)$ and $2k-2l+1$ is odd. And if we sum them now, $4k+1+4l+3=4(k+l+1)$ is found to be divisible by $4$.
+				\end{enumerate}
+		\end{solution}
+	A clever reader would ask themselves, how do we jump to the third case without checking the first two manually? This kind of thinking can lead you to direct and better solutions, whereas others may find some tedious solutions.
+		\begin{proposition}
+			Let $a$ and $b$ be two positive integers.
+				\begin{enumerate}[i.]
+					\item If $a|b$, then $\dfrac{b}{a}$ is an integer. So, there is an integer $k$ such that $\dfrac{b}{a}=k$ or $b=ak$. Moreover, we can say that $k|b$.
+					\item For any integer $a$, $a|a$ and $a|0$.
+					\item If $0|a$ then $a$ must be $0$.
+					\item If we assume that $a|b$ then $|b|\geq |a|$ where $|a|$ denotes the absolute value of integer $b$.\footnote{This claim has a flaw in it. Find it!}
+					\item The above claim is not entirely true. The only exception is that $b=0$.
+					\item Let $c$ be an integer such that $a|c$. If $a|b$ holds true as well, $a|b\pm c$.
+					\item 
+				\end{enumerate}
+		\end{proposition}
 	\begin{thebibliography}{99}
 		\bibitem{engel} \textit{Arthur Engel}, Problem-Solving Strategies (Chapter $6$), 1998 Springer-Verlag New York, Inc.
 		
