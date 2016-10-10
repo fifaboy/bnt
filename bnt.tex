@@ -1,0 +1,49 @@
+\documentclass[a4paper, 12pt, leqno]{article}
+
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+
+\newtheorem{theorem}{Theorem}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+
+\author{\itshape Masum Billal}
+\title{\scshape Basic Number Theory}
+
+\begin{document}
+	\maketitle
+	\titlepage
+	\section*{Preface ($2016$ Edition)}
+		This is a note I wrote in $2010-2011$ (approximately). The primary objective was not to write a note though. I used to write something everyday as a habit of practicing \LaTeX, specially when I learned about a new feature. The end result was this note. For that reason, you can see that the original document structure (I lost the source file of that one, so I re-wrote it) is quite clumsy. Also, some topics seem random and not really connected to the main topic. I am keeping them here anyway since they may be useful after all.
+		
+		The note was primarily intended for BdMO math campers. However, it may be useful for any newcomer looking for interesting problems and ideas to solve them. It should be mentioned that, this is not a textbook. And you should not use it as a reference for something rigorous such as definitions. The reason is that, I have focused more on making the sense rather than stating something rigorous that makes less sense. Moreover, I could not write too much at that time and even though I am writing it now, I hardly have the time to improve it or add more to it. You can see the references section for further reading.
+		
+		I want to take this chance to clear something up. From my personal experience, I have seen most of the beginners try to learn lots of theorems in order to be able to solve problems. They do this mostly as a mean of shortcut. I have tried a lot to change that thinking among the students. But it has become a tradition to follow that one must know thousands of theorems so everyone calls you master of number theory. There are two things to mention here. One is that you can never become a master of number theory. Second is that, even though the word \texttt{theory} is juxtaposed with \textbf{Number Theory}, by no means it implies that you must know a lot of theorems.
+		
+		With that said, after you are done with this book, you may think that I am being two faced here. Therefore, I will explain it more. At first I have tried to show why you should solve problems as if you know nothing. That means, you will solve everything right from the start without any heads up. Once you think that you are at the point where you can find theorems or lemmas associated with a problem to solve, you will know what I mean. After that, you are ready to read about any book in number theory (though it depends on the pre-requisite of that book). The point is that, you should realize, we use theorems just to speed up our thinking process and save the time of doing the same thing twice all over again. We should not use theorems to actually solve problems. That is the reason why there is no choice but to discuss theorems when we talking about number theory. But this does not imply in any way that theorem is the core of number theory. It only means that we will study how the numbers dance and develop interesting properties. Although this is my personal opinion, I have found it to be true practically that, if you use theorems as means of solving problems rather than spending the time to gain your intuitive maturity, you can not solve problems beyond a certain level (roughly saying, I do not intend to argue about level of problems or anything). I hope you get my point. Even if you don't, it will not matter to me. But it will matter to me a lot if someone tries not to use theorems to make sense of something.
+		
+		Since this note was not reviewed or edited by anyone else, it may contain errors. One may find the definitions or some proofs too informal, but that is precisely the reason of creating this document. So, please do not brag about formality in this regard. Making better sense of something is more important to me than stating something that does not make a whole lot sense.
+		
+		Finally, I would like to mention that you can use or distribute it however you like as long as you don't use it for financial gain. Feel free to email me for making this better or if you want to be a contributor.
+			\begin{flushright}
+				\slshape Masum Billal\\
+				\date{October $10$, $2016$}
+			\end{flushright}
+		\newpage
+	\section{Divisibility}
+		Note the following division of $97$ by $24$.
+			\begin{align*}
+				97 & = 4\cdot24+1
+			\end{align*}
+		In this division, we call $4$ the quotient (the result of the division) and $1$ the remainder (the part which was left) of this division. For the division $96 = 24 · 4 + 0$ we have the remainder $0$. In this case, we say that $96$ is divisible by $24$ (so by $4$ as well).
+			\begin{definition}
+				Let $a$ and $b$ be two natural numbers such that $b$ leaves remainder $0$ upon division by $a$. Then $b$ is said to be divisible by $a$. We denote it by $a|b$. Sometimes, the notation $b\vdots a$ is also used. But in this note, we shall make use of the notation of $a|b$ mostly.
+			\end{definition}
+		
+	\begin{thebibliography}{99}
+		\bibitem{engel} \textit{Arthur Engel}, Problem-Solving Strategies (Chapter $6$), 1998 Springer-Verlag New York, Inc.
+		
+		\bibitem{paul} \textit{Paul Zeitz}, The Art and Craft of Problem Solving (Chapter $7$), John Wiley \& Sons, Inc.
+		
+	\end{thebibliography}
+\end{document}
