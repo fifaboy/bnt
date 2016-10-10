@@ -15,6 +15,8 @@
 \theoremstyle{remark}
 \newtheorem*{example}{Example}
 
+\newcommand{\lcm}{\text{lcm}}
+
 \author{\itshape Masum Billal}
 \title{\scshape Basic Number Theory}
 
@@ -117,9 +119,64 @@
 					\item If we assume that $a|b$ then $|b|\geq |a|$ where $|a|$ denotes the absolute value of integer $b$.\footnote{This claim has a flaw in it. Find it!}
 					\item The above claim is not entirely true. The only exception is that $b=0$.
 					\item Let $c$ be an integer such that $a|c$. If $a|b$ holds true as well, $a|b\pm c$.
-					\item 
+					\item The above proposition can be generalized. If $a|b$ and $a|c$ then for any two integers $x,y$ we have $a|bx+cy$.
+					\item[Euclid's Lemma] If $p$ is a prime and $a,b$ are positive integers such that $p$ divides $ab$, then at least one of $p|a$ or $p|b$ must be true.
+					\item The least positive remainder in a division is unique.
+					
+					If $a|b$, then it must leave a remainder other than $0$. Say, it is $r$. Then, $b-r$ would be divisible by $a$. Let
+						\begin{align*}
+							b-r=aq & \iff b=aq+r
+						\end{align*}
+					When we mention such a remainder $r$, we usually mean the least positive remainder. To explain this, take the example $23=5\cdot4+3=5\cdot3+8$. So technically both $3$ and $8$ are remainders. But $3$ is the least positive remainder when $23$ is divided by $5$. Moreover, notice that the least positive remainder is less than the dividing number.
+					
+					What the proposition says is that, for positive integer $a,b$ there are unique integer $q$ and a unique positive integer $r$ such that $b=aq+r$ and $0\leq r<a$. We can prove this easily as well. And the uniqueness of $r$ can prove the uniqueness of $q$ as well (and vice versa). For the sake of contradiction, suppose that,
+						\begin{align*}
+							b = aq_1+r_1 & = aq_2+r_2
+						\end{align*}
+					where both $0\leq r_1,r_2<a$. From the latter, we get
+						\begin{align*}
+							a(q_1-q_2) & = r_2-r_1
+						\end{align*}
+					This equation says that $a$ divides $r_2-r_1$. Unless $|r_2-r_1|=0$, this can not be true (why?). The conclusion follows.
+					\item For all composite $n > 1$, $n$ has a prime divisor $p$ such that
+						\begin{align*}
+							p & \leq \sqrt{n}
+						\end{align*}
+					First you should think for yourself why this has to be true. Actually, no. First you should think if this is even true at all or I am playing with you. After you play around with some examples and convince yourself that this might actually be true, only then you can work on proving it. And this goes for all problems in general. Take $n=12$ and $n=35$. They have prime divisors $2$ and $5$. Take some more and you should realize why this must be true.
+					
+					Assume that the smallest prime factor of $n$ is $p$. Then $n = pk$ for some
+					$k\geq p$. If $k < p$, then $k$ would have at least one prime factor less than
+					$p$, but that is not possible. Therefore, $k \geq p$. Then
+						\begin{align*}
+							n & = kp\\
+							  & \geq p^2\\
+							\iff p& \leq \sqrt{n}
+						\end{align*}
+					Using this property, we can determine whether a number is a prime or
+					not. Though this is not an efficient approach at all, it is very useful for
+					small numbers.
 				\end{enumerate}
 		\end{proposition}
+	
+	\section{GCD-LCM}
+		Take the numbers $18$ and $12$ and consider their divisors. The list of their divisors is
+			\begin{align*}
+				\{1,2,3,6,9,18\} & , \{1,2,3,4,6,12\}
+			\end{align*}
+		Since $1$ belongs to both list, we will have at least one element common. But is there any other common element? In this case we have $1,2,3,6$. The greatest one among these common divisors is $6$. We call $6$ the \textit{greatest common divisor} of $12$ and $18$. We denote the greatest common divisor of $a$ and $b$ by $\gcd(a,b)$ or shortly $(a,b)$. In this note, we shall use this notation for brevity. When $(a,b) = 1$ that is two numbers do not have a common divisor other than $1$, then $a$ is called to be co-prime or relatively
+		prime with $b$ and is denoted by $a \bot b$.
+			\begin{example}
+				$(6,28) = 2$, because $2$ is the most common part among them. $56\bot 243$, since $56=2^3\cdot7$ and $243=3^5$ do not share any common factor other than $1$.
+			\end{example}
+		Can you prove that it must be unique for any two positive integer? \textit{Least common multiple} follows from the idea of greatest common divisor. Both $a$ and $b$ have infinite multiples namely
+			\begin{align*}
+				a\cdot1,a\cdot2,\cdots\\
+				b\cdot1,b\cdot2,\cdots
+			\end{align*}
+		For example, the multiples of $12$ are $12,24,36,\ldots$ The multiples of $18$ are $18,36,\ldots$. Now, an analogous question to greatest common divisor would be, is there a multiple of $12$ that is a multiple of $18$ as well? Well, the answer is simple. Yes, $12\cdot18$. Ok, but this makes us ask something not so obvious. What is the smallest possible positive integer that is a multiple of both $12$ and $18$? We know that such a multiple exists but the product of those two positive integers may not be the one we are looking for. In this case, $12\cdot18=216$ but as we can see, $36$ is the number with the desired property. We call $36$ the least common multiple of $12$ and $18$. It is denoted by $\lcm(a,b)$ or shortly $[a,b]$ sometimes.
+			\begin{definition}
+				$\gcd(a,b)$ is the greatest positive integer that divides both $a$ and $b$. $\lcm(a,b)$ is the least positive integer that is divisible by both $a$ and $b$.
+			\end{definition}
 	\begin{thebibliography}{99}
 		\bibitem{engel} \textit{Arthur Engel}, Problem-Solving Strategies (Chapter $6$), 1998 Springer-Verlag New York, Inc.
 		
