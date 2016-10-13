@@ -1,8 +1,9 @@
-\documentclass[a4paper, 12pt, leqno]{article}
+\documentclass[a4paper, leqno]{article}
 
 \usepackage{amsmath, amsthm, amssymb, amsfonts}
 \usepackage{enumerate}
 \usepackage{times, mathptmx}
+\usepackage{fancyhdr}
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{proposition}{Proposition}
@@ -18,7 +19,13 @@
 \newcommand{\lcm}{\text{lcm}}
 
 \author{\itshape Masum Billal}
-\title{\scshape Basic Number Theory}
+\title{\scshape Nurani Number Theory}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{Nurani Number Theory}
+\fancyhead[RE,LO]{Masum Billal}
+\fancyfoot[CE,CO]{\thepage}
 
 \begin{document}
 	\maketitle
@@ -26,7 +33,7 @@
 	\section*{Preface ($2016$ Edition)}
 		This is an edited version of a note I wrote in $2010-2011$ (approximately). The primary objective was not to write a note though. I used to write something everyday as a habit of practicing \LaTeX, specially when I learned about a new feature. The end result was this note. For that reason, you can see that the original document structure (I lost the source file of that one, so I re-wrote it) is quite clumsy. Also, some topics seem random and not really connected to the main topic. I am keeping them here anyway since they may be useful after all.
 		
-		The note was primarily intended for BdMO math campers. However, it may be useful for any newcomer looking for interesting problems and ideas to solve them. It should be mentioned that, this is not a textbook. And you should not use it as a reference for something rigorous such as definitions. The reason is that, I have focused more on making the sense rather than stating something rigorous that makes less sense. Moreover, I could not write too much at that time and even though I am writing it now, I hardly have the time to improve it or add more to it. You can see the references section for further reading.
+		The note is primarily meant to be for BdMO math campers. However, it may be useful for any newcomer looking for interesting problems and ideas to solve them. It should be mentioned that, this is not a textbook. And you should not use it as a reference for something rigorous such as definitions. The reason is that, I have focused more on making the sense rather than stating something rigorous that makes less sense. Moreover, I could not write too much at that time and even though I am writing it now, I hardly have the time to improve it or add more to it. You can see the references section for further reading.
 		
 		I want to take this chance to clear something up. From my personal experience, I have seen most of the beginners try to learn lots of theorems in order to be able to solve problems. They do this mostly as a mean of shortcut. I have tried a lot to change that thinking among the students. But it has become a tradition to follow that one must know thousands of theorems so everyone calls you master of number theory. There are two things to mention here. One is that you can never become a master of number theory. Second is that, even though the word \texttt{theory} is juxtaposed with \textbf{Number Theory}, by no means it implies that you must know a lot of theorems.
 		
