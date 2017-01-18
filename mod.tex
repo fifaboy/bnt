@@ -1,0 +1,40 @@
+\documentclass{subfile}
+
+\begin{document}
+	\section{Congruence}
+		We may call congruence (also known as \textit{modular arithmetic}) the dual of divisibility. It was first introduced and highly
+		used by \textit{Carl Fredrich Gauss}.
+			\begin{definition}
+				If two integers $a$ and $b$ leave the same remainder upon division by $n$, then $a$ and $b$ are said to be \textit{congruent modulo} $n$. In other words, $a$ leaves remainder $b$ (not necessarily minimum or absolute minimum) upon division by $n$.
+			\end{definition}
+			
+			\begin{example}
+				Since $14$ and $62$ leaves the same remainder $6$ upon division by $8$, we say that $14$ and $62$ are congruent modulo $8$. We denote it by $14\equiv62\pmod8$ and say $14$ is congruent to $62$ modulo $8$. Likewise, $11\equiv4\pmod7$. Note that these remainders can be negative. So, we can also take
+					\begin{align*}
+						11 & \equiv-1\pmod6
+					\end{align*}
+			\end{example}
+		The set $\mathbb{Z}_n=\{0,1,2,\ldots,n-1\}$ (the set of integers modulo $n$) is called the \textit{complete set of residue class modulo} $n$. However, we mostly consider the set $Z_n-\{0\}$. This is called a complete set of residue class modulo $n$ because any integer gives a remainder upon division by $n$ which is an element of this set. Also, it is obvious that every integer gives a unique remainder upon division by $n$ which belongs to this set. This actually follows from $\#10$ of divisibility.
+			\begin{definition}
+				$P(x)$ is a polynomial a sum of some powers of $x$ (obviously finite). That is,
+					\begin{align*}
+						P(x) & = a_nx^n+\cdots+a_1x+a_0
+					\end{align*}
+				The highest power of a polynomial is called \textit{degree} which is $n$ in this case.
+			\end{definition}
+		The following proposition discusses some of the basics of modular arithmetic.
+			\begin{proposition}
+				We let $a,b,k,n$ be positive integers.
+					\begin{enumerate}[(1)]
+						\item $a\equiv b\pmod n\iff n|a-b$. This is straightforward from the definition.
+						\item $a\equiv a\pmod n$ (reflexive property).
+						\item If $a\equiv b\pmod n$ then $b\equiv a\pmod n$ (symmetric property) and vice versa.
+						\item If $a\equiv b\pmod n$ and $b\equiv c\pmod n$ then $a\equiv c\pmod n$ (transitive property).
+						\item If $a\equiv b\pmod n$ then $a+nk\equiv b\pmod n$ holds as well.
+					\end{enumerate}
+			\end{proposition}
+			
+			\begin{proposition}[Operations in congruence]
+				Assume that $a,b,c,d$ are positive integers.
+			\end{proposition}
+\end{document}

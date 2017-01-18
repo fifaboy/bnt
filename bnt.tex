@@ -1,12 +1,14 @@
 \documentclass[a4paper, leqno]{article}
 
-\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{amsmath, amsthm, amssymb, amsfonts, subfiles}
 \usepackage{enumerate}
 \usepackage{times, mathptmx}
 \usepackage{fancyhdr}
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{proposition}{Proposition}
+\newtheorem{identity}{Identity}
+\newtheorem{corollary}{Corollary}
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
@@ -33,7 +35,7 @@
 	\section*{Preface ($2016$ Edition)}
 		This is an edited version of a note I wrote in $2010-2011$ (approximately). The primary objective was not to write a note though. I used to write something everyday as a habit of practicing \LaTeX, specially when I learned about a new feature. The end result was this note. For that reason, you can see that the original document structure (I lost the source file of that one, so I re-wrote it) is quite clumsy. Also, some topics seem random and not really connected to the main topic. I am keeping them here anyway since they may be useful after all.
 		
-		The note was meant to for BdMO math campers. However, it may be useful for any newcomer looking for interesting problems and ideas to solve them. It should be mentioned that, this is not a textbook. And you should not use it as a reference for something rigorous such as definitions. The reason is that, I have focused more on making the sense rather than stating something rigorous that makes less sense. Moreover, I could not write too much at that time and even though I am writing it now, I hardly have the time to improve it or add more to it. You can see the references section for further reading.
+		The note was meant for BdMO math campers. However, it may be useful for any newcomer looking for interesting problems and ideas to solve them. This is not a textbook. And you should not use it as a reference for something rigorous such as definitions. The reason is that, I have focused more on making the sense rather than stating something rigorous that makes less sense. Moreover, I could not write too much at that time and even though I am writing it now, I hardly have the time to improve it or add more to it. You can see the references section for further reading.
 		
 		I want to take this chance to clear something up. From my personal experience, I have seen most of the beginners try to learn lots of theorems in order to be able to solve problems. They do this mostly as a mean of shortcut. I have tried a lot to change that thinking among the students. But it has become a tradition to follow that one must know thousands of theorems so everyone calls you master of number theory. There are two things to mention here. One is that you can never become a master of number theory. Second is that, even though the word \texttt{theory} is juxtaposed with \textbf{Number Theory}, by no means it implies that you must or should know a lot of theorems. \textbf{Stop memorizing theorems just because you think it's cool to tell others you know this theorem or that theorem}.
 		
@@ -42,13 +44,13 @@
 				\item If $a+b+c$ is divisible by $6$, then so is $a^3+b^3+c^3$.
 				\item If an integer can be expressed as a sum of squares, so can be the square of that integer.
 			\end{enumerate}
-		Now, this turned into something embarrassing when I saw the solutions. One can find brute force solutions for them. For example, I posed this problem to someone. He mentioned parity and considering cases of remainders upon division by $3$ etc. See this ingenious solution now. $a^3-a=a(a-1)(a+1)$, these are three consecutive integers. So, one is divisible by $2$, another by $3$. Consequently, the product is divisible by $6$. Therefore, $a^3-a+b^3-b+c^3-c$ is divisible by $6$, no matter what. Say no more, right? If you are experienced with number theory already, my bet is you would have done exactly what he suggested. Why is that? Anyway, if you still do not get my point, I can not make you understand.
+		Now, this turned into something embarrassing when I saw the solutions. One can find brute force solutions for them. For example, I posed this problem to someone. He mentioned parity and considering cases of remainders upon division by $3$ etc. See this ingenious solution now. $a^3-a=a(a-1)(a+1)$, these are three consecutive integers. So, one is divisible by $2$, another by $3$. Consequently, the product is divisible by $6$. Therefore, $a^3-a+b^3-b+c^3-c=a^3+b^3+c^3-(a+b+c)$ is divisible by $6$, no matter what. This does not require any theory or any knowledge except for pure thinking. And that is the case for number theory, not the other way around.
 		
 		With that said, after you are done with this book, you may think that I am being two faced here. Therefore, I will explain it more. At first I have tried to show why you should solve problems as if you know nothing. That means, you will solve everything right from the start without any heads up. Once you think that you are at the point where you can find theorems or lemmas associated with a problem to solve, you will know what I mean. After that, you are ready to read about any book in number theory (though it depends on the pre-requisite of that book). The point is that, you should realize, we use theorems just to speed up our thinking process and save the time of doing the same thing twice all over again. We should not use theorems to actually solve problems. That is the reason why there is no choice but to discuss theorems when we talking about number theory. But this does not imply in any way that theorem is the core of number theory. It only means that we will study how the numbers dance and develop interesting properties. Although this is my personal opinion, I have found it to be true practically that, if you use theorems as means of solving problems rather than spending the time to gain your intuitive maturity, you can not solve problems beyond a certain level (roughly saying, I do not intend to argue about level of problems or anything). I hope you get my point. Even if you don't, it will not matter to me. But it will matter to me a lot if someone tries not to use theorems to make sense of something.
 		
 		Since this note was not reviewed or edited by anyone else, it may contain errors. One may find the definitions or some proofs too informal, but that is precisely the reason of creating this document. So, please do not brag about formality in this regard. Making better sense of something is more important to me than stating something that does not make a whole lot sense.
 		
-		Finally, I would like to mention that you can use or distribute it however you like as long as you don't use it for financial gain. Feel free to email me for making this better or if you want to be a contributor.
+		Finally, I would like to mention that you can use or distribute it however you like as long as you don't use it for financial gain. Also, please don't share it after changing it yourself. If you want to change something, tell me first\footnote{I have decided not to let anyone change it manually every time someone wants to include/edit something. Rather you should do it in \textbf{Git} and create a pull request.}. Feel free to email me for making this better or if you want to be a contributor.
 			\begin{flushright}
 				\slshape Masum Billal\\
 				\date{October $10$, $2016$}
@@ -131,13 +133,13 @@
 					\item For any integer $a$, $a|a$ and $a|0$.
 					\item If $0|a$ then $a$ must be $0$.
 					\item If we assume that $a|b$ then $|b|\geq |a|$ where $|a|$ denotes the absolute value of integer $b$.\footnote{This claim has a flaw in it. Find it!}
-					\item The above claim is not entirely true. The only exception is that $b=0$.
+					\item The claim above is not entirely true. The only exception is that $b=0$.
 					\item Let $c$ be an integer such that $a|c$. If $a|b$ holds true as well, $a|b\pm c$.
-					\item The above proposition can be generalized. If $a|b$ and $a|c$ then for any two integers $x,y$ we have $a|bx+cy$.
+					\item This proposition can be generalized. If $a|b$ and $a|c$ then for any two integers $x,y$ we have $a|bx+cy$.
 					\item[Euclid's Lemma] If $p$ is a prime and $a,b$ are positive integers such that $p$ divides $ab$, then at least one of $p|a$ or $p|b$ must be true.
 					\item The least positive remainder in a division is unique.
 					
-					If $a|b$, then it must leave a remainder other than $0$. Say, it is $r$. Then, $b-r$ would be divisible by $a$. Let
+					{\normalfont If $a|b$, then it must leave a remainder other than $0$. Say, it is $r$. Then, $b-r$ would be divisible by $a$. Let
 						\begin{align*}
 							b-r=aq & \iff b=aq+r
 						\end{align*}
@@ -151,12 +153,12 @@
 						\begin{align*}
 							a(q_1-q_2) & = r_2-r_1
 						\end{align*}
-					This equation says that $a$ divides $r_2-r_1$. Unless $|r_2-r_1|=0$, this can not be true (why?). The conclusion follows.
+					This equation says that $a$ divides $r_2-r_1$. Unless $|r_2-r_1|=0$, this can not be true (why?). The conclusion follows.}
 					\item For all composite $n > 1$, $n$ has a prime divisor $p$ such that
 						\begin{align*}
 							p & \leq \sqrt{n}
 						\end{align*}
-					First you should think for yourself why this has to be true. Actually, no. First you should think if this is even true at all or I am playing with you. After you play around with some examples and convince yourself that this might actually be true, only then you can work on proving it. And this goes for all problems in general. Take $n=12$ and $n=35$. They have prime divisors $2$ and $5$. Take some more and you should realize why this must be true.
+					{\normalfont First you should think for yourself why this has to be true. Actually, no. First you should think if this is even true at all or I am playing with you. After you play around with some examples and convince yourself that this might actually be true, only then you can work on proving it. And this goes for all problems in general. Take $n=12$ and $n=35$. They have prime divisors $2$ and $5$. Take some more and you should realize why this must be true.
 					
 					Assume that the smallest prime factor of $n$ is $p$. Then $n = pk$ for some
 					$k\geq p$. If $k < p$, then $k$ would have at least one prime factor less than
@@ -168,7 +170,7 @@
 						\end{align*}
 					Using this property, we can determine whether a number is a prime or
 					not. Though this is not an efficient approach at all, it is very useful for
-					small numbers.
+					small numbers.}
 				\end{enumerate}
 		\end{proposition}
 	
@@ -191,10 +193,96 @@
 			\begin{definition}
 				$\gcd(a,b)$ is the greatest positive integer that divides both $a$ and $b$. $\lcm(a,b)$ is the least positive integer that is divisible by both $a$ and $b$.
 			\end{definition}
+			
+			\begin{proposition}
+				Assume that $g$ and $l$ are the greatest common divisor and least common multiple of two positive integers $a$ and $b$ respectively.
+					\begin{enumerate}
+						\item By definition, $g|a,b$ and $a,b|l$.
+						\item $a$ divides $b$ if and only if $(a,b)=a$.
+						\item Consequently, $g|l$, therefore, $l\geq a,b\geq g$ holds.
+						\item If $p$ is a prime divisor of $a$ or $b$, then $p|l$. Similarly, if $q$ is a prime divisor of $g$, $q|a,b$.
+						\item For any integers $x,y$ $g|ax+by$.
+						\item $ab=gl$.
+						{\normalfont This is easy to make sense. Since $g$ is the greatest common divisor, we can divide both $a$ and $b$ by $g$. Assume that, $a=gm$ and $b=gn$. From the definition, $m$ and $n$ can not have any common factor. This also means that $l=gmn$ (why?). The rest follows.}
+						\item $(a,a)=a$ and $(a,0)=a$. Similarly, $[a,a]=a$ and $[a,0]=0$.
+						\item[Euclidean Algorithm] If $b=aq+r$, then $(a,b)=(a,r)$.
+						{\normalfont Probably you have already used it in $4$th or $5$th grade. But have you ever wondered why this works? Why does a same method not work for least common multiple? You can easily understand the reason if you think a bit. $g|a$ and $g|b=aq+r$. Then, $g|b-aq=r$ as well. This says that the greatest common divisor would be in the remainder too.}
+						\item For positive integers $m,n$ $a^m\bot b^n$ if and only if $a\bot b$.
+					\end{enumerate}
+			\end{proposition}
+		Prove the last proposition yourself.
+		\section{Some Identities}
+			\begin{identity}[Sophie Germain Identity]
+				Let $a,b$ be positive integers.
+					\begin{align*}
+						a^4+4b^4 & = (a^2+2ab+2b^2)(a^2-2ab+2b^2)
+					\end{align*}
+				You may have already seen this while learning how to factorize\footnote{In Bangladesh, students are taught some factoring techniques such as \textit{middle term factor, completing the square}.}.
+			\end{identity}
+			
+			\begin{corollary}
+				If $a,b>1$ then $a^4+4b^4$ is composite.
+			\end{corollary}
+		Prove this. Also prove the opposite.
+			\begin{problem}
+				If $a^4+4b^4$ is a prime for natural number $a,b$, then $a=b=1$.
+			\end{problem}
+		The next identity is also taught in our high school. However, not many students of grade $9/10$ realize or know this.
+			\begin{identity}\label{id:geodiv}
+				Let $n$ be a positive integer.
+					\begin{align*}
+						a^n-b^n & = (a-b)(a^{n-1}+a^{n-2}b+\cdots+ab^{n-2}+b^{n-1})
+					\end{align*}
+			\end{identity}
+		How many ways can you prove this? Induction is certainly a way. How about trying to find the sum $a^{n-1}+a^{n-2}b+\cdots+ab^{n-2}+b^{n-1}$? Moreover, can you find any similarity between this sum and a geometric series? Does that enable you to find a solution that is similar to finding the sum of a geometric series?
+			\begin{corollary}
+				For two positive integers $a,b$,
+					\begin{align*}
+						a-b & |a^n-b^n
+					\end{align*}
+				where $n$ is a positive integer.
+			\end{corollary}
+			
+			\begin{corollary}
+				If $n$ is an odd positive integer, then
+					\begin{align*}
+						a+b & |a^n+b^n
+					\end{align*}
+			\end{corollary}
+		Prove this using \eqref{id:geodiv}.
+			\begin{identity}[Fibonacci-Brahmagupta Identity]\label{id:fib}
+				The product of two sum of squares is a sum of square as well.
+					\begin{align*}
+						(a^2+b^2)(c^2+d^2) & = (ad+bc)^2+(ac-bd)^2\\
+											&= (ac+bd)^2+(ad-bc)^2
+					\end{align*}
+			\end{identity}
+		Note that this product has two representations. Remember the second problem I mentioned in preface? Just notice this. If $n=x^2+y^2$,
+			\begin{align*}
+				n^2 & = (x^2+y^2)^2\\
+					& = (x^2-y^2)^2+4x^2y^2\\
+					& = (x^2-y^2)^2+(2xy)^2
+			\end{align*}
+		Here we used the fact $(a+b)^2=(a-b)^2+4ab$. This is something students learn at $6/7$th grade in Bangladesh. Yet, none of the people I asked to prove it has been able to find this simple solution. So, if you still think that the amount of theory you know somehow defines your level\footnote{If you believe in level theory, that is}, then feel free to contact me. Maybe I can show you a thing or two.
+		
+		Anyway, we can generalize identity \eqref{id:fib}.
+			\begin{align*}
+				(a^2+nb^2)(c^2+nd^2) & = (ac-bd)^2+n(ad+bc)^2
+			\end{align*}
+		Find the other representation yourself.
+			\begin{identity}[Bhaskara's Lemma]
+				Let $n$ be a square-free integer\footnote{It does not have a divisor that is a perfect square other than $1$. However, we could take $n$ to be any integer and we would only end up with something like $x^2-y^2=l$.} and $k$ be an arbitrary integer. If $y^2-nx^2 = k$ then for any integer $m$,
+					\begin{align*}
+						\dfrac{(mx+ny)^2}{k}-n\left(\dfrac{mx+y}{k}\right)^2 & = \dfrac{m^2-n}{k}
+					\end{align*}
+			\end{identity}
+		This identity allows us to solve \textit{Pell-Fermat equation} which is a type of \textit{Diophantine equation}.
+		\subfile{mod.tex}
 	\begin{thebibliography}{99}
 		\bibitem{engel} \textit{Arthur Engel}, Problem-Solving Strategies (Chapter $6$), 1998 Springer-Verlag New York, Inc.
 		
 		\bibitem{paul} \textit{Paul Zeitz}, The Art and Craft of Problem Solving (Chapter $7$), John Wiley \& Sons, Inc.
+		\bibitem{titu} \textit{Titu Andreescu, Dorin Andrica}, Number Theory: Structures, Examples, and Problems, Springer, $2009$.
 		
 	\end{thebibliography}
 \end{document}
