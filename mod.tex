@@ -1,4 +1,4 @@
-\documentclass{subfile}
+\documentclass[bnt.tex]{subfile}
 
 \begin{document}
 	\section{Congruence}
@@ -35,6 +35,21 @@
 			\end{proposition}
 			
 			\begin{proposition}[Operations in congruence]
-				Assume that $a,b,c,d$ are positive integers.
+				Assume that $a,b,c,d$ are positive integers. Moreover $a\equiv b\pmod n$ and $c\equiv d\pmod n$. Then
+					\begin{enumerate}[(1)]
+						\item $a+b\equiv c+d\pmod n$.
+						\item $a-b\equiv c-d\pmod n$.
+						\item $ac\equiv bd\pmod n$.
+					\end{enumerate}
 			\end{proposition}
+		Proving them is easy. From $a\equiv b\pmod n$, we can say $a=b+nk$ for some integer $k$. Similarly, $c=d+nl$ for some integer $l$. Now,
+			\begin{align*}
+				a+b & = c+d+n(k+l)\\
+					& \equiv c+d\pmod n
+			\end{align*}
+		The ones described in the previous proposition or the other ones in this proposition can be proved in the same way. We have a corollary.
+			\begin{align*}
+				ac & \equiv bc\pmod n
+			\end{align*}
+		You can see, congruence is keeping up with equations so far. So you may want to conjecture that if $ac\equiv bc\pmod n$ then $a\equiv b\pmod n$. However, is that correct? Take some examples. See if all of them are consistent with this statement.
 \end{document}
